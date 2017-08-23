@@ -1,0 +1,39 @@
+module.exports = {
+  //configuration
+}
+
+module.exports = {
+    context: __dirname + "/app",  //上下文 默认为__dirname 即为当前项目根目录
+    entry: "./entry",
+    output: {
+        path: __dirname + "/dist",
+        filename: "bundle.js"
+    }
+}
+
+entry: 
+  第一种情况：entry: ["./entry1", "./entry2"]
+  
+  第二种情况：{
+    entry: {
+        page1: "./page1",
+        page2: ["./entry1", "./entry2"]
+    },
+    output: {
+        // Make sure to use [name] or [id] in output.filename
+        //  when using multiple entry points
+        filename: "[name].bundle.js",
+        chunkFilename: "[id].bundle.js"
+    }
+  }
+  
+  
+  {
+  entry: {
+    app: './src/app.js',
+    search: './src/search.js'
+  },
+  output: {
+    filename: '[name].js',
+    path: __dirname + '/build'
+  }
